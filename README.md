@@ -157,8 +157,19 @@ output. By default they are not included
  
 The included XML formatter does not have any additional output options.
 
+**Building**
+Jisql now uses a standard source code tree format along with a Maven pom.xml
+file.  To build you would run:
+
+`mvn package`
+
+This will create a jisql.jar in the directory "target" along with a
+jisql-jar-with-dependencies.jar.  Either of these can be used as you
+need.  Please understand though that the dependencies jar will not
+contain your JDBC driver.
+
  
-Copyright (C) 2004-2011 Scott Dunbar (scott@xigole.com)
+Copyright (C) 2004-2015 Scott Dunbar (scott@xigole.com)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not
 use this file except in compliance with the License. You may obtain a copy
