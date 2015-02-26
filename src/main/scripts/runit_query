@@ -1,0 +1,2 @@
+java -classpath lib/jisql.jar:lib/jopt-simple-3.2.jar:lib/javacsv.jar:/home/scott/postgresql/postgresql-8.4-701.jdbc4.jar com.xigole.util.sql.Jisql -user scott -password blah -driver postgresql -cstring jdbc:postgresql://localhost:5432/scott -c \; -query "select * from test;"
+

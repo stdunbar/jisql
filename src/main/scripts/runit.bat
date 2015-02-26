@@ -1,0 +1,1 @@
+java -classpath lib/jisql.jar;lib/jopt-simple-3.2.jar;lib/javacsv.jar;C:/Oracle/product/10.1.0/Client_1/jdbc/lib/ojdbc14.jar com.xigole.util.sql.Jisql -user scott -password blah -driver oraclethin -cstring jdbc:oracle:thin:@hostname.tld:1521:orasid -c ;
