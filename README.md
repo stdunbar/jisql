@@ -59,7 +59,7 @@ running. This same version information is included in the code (run with
 ## New in version 2.0.12
 Moved to Maven for builds to help with dependencies.
 
-Options:
+## Command line options
 
 * -driver This option allows you to specify the JDBC driver class name of the driver. There are several shortcuts that can be used:
   * jconnect4 - short for com.sybase.jdbc.SybDriver
