@@ -135,7 +135,7 @@ The included default formatter supports the following command line options:
 * -noheader do not print the header column info.
 * -spacer The character to use for "empty" space. This defaults to the space
 character. From mrider - "I added the ability to specify the spacer for columns
-- which used to be the single char ' '. I did this because of brain-dead
+which used to be the single char ' '. I did this because of brain-dead
 Windows' command line copy/paste. It seems that when a line of text ends in
 space, copy does not copy that space. Which makes it difficult to copy/paste
 into another program. This can probably be ignored most of the time."
