@@ -1,5 +1,5 @@
 # jisql
-A simple utility to provide an command line interactive session with any SQL server with a JDBC driver
+A simple utility to provide a command line interactive session with any SQL server with a JDBC driver
 
 Jisql is a Java based utility to provide a command line interactive session
 with a SQL server. This application is conceptually modeled on the Sybase
