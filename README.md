@@ -10,7 +10,7 @@ The program can act in a similar way to Oracle's sqlplus and PostgreSQL's psql.
 
 The complete Jisql package (source code, Javadoc, build environment) can be downloaded from:
 
-    [GitHub](https://github.com/stdunbar/jisql)
+    https://github.com/stdunbar/jisql
 
 A simple command line might look like (this should be all on one line) is:
 java -cp lib/jisql-2.0.11.jar:lib/jopt-simple-3.2.jar: <jar for native driver>
@@ -39,9 +39,11 @@ very likely feel familar.
 
 * CSV The output follows a Comma Separated Values format. The default
 separator is a comma but any other character can be used. I like using the
-pipe character as it makes parsing the output very easy.  XML The output
-is a very simple XML tree. Basically there is the normal XML processing
-instruction at the top and then every row is output with the column names.
+pipe character as it makes parsing the output very easy.
+
+* XML The output is a very simple XML tree. Basically there is the normal
+XML processing instruction at the top and then every row is output with
+the column names.
 
 There is now a dependency on JOpt Simple in for the base
 configuration. Additionally, if you are using the CSVFormatter then it is
