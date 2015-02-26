@@ -8,14 +8,15 @@ isql and osql (as Microsoft got SQL Server from Sybase).
 
 The program can act in a similar way to Oracle's sqlplus and PostgreSQL's psql.
 
-The complete Jisql package (source code, Javadoc, build environment) can be downloaded from:
+The complete Jisql package can be downloaded from:
 
     https://github.com/stdunbar/jisql
 
 A simple command line might look like (this should be all on one line) is:
-java -cp lib/jisql-2.0.11.jar:lib/jopt-simple-3.2.jar: <jar for native driver>
+
+`java -cp lib/jisql-2.0.11.jar:lib/jopt-simple-3.2.jar: <jar for native driver>
 com.xigole.util.sql.Jisql -user scott -password blah -driver postgresql
--cstring jdbc:postgresql://localhost:5432/scott -c \;
+-cstring jdbc:postgresql://localhost:5432/scott -c \;`
 
 This logs into a PostgreSQL database as the user "scott", password "blah". It
 connects to the database named "scott". It uses the command terminator of ";",
@@ -157,7 +158,7 @@ output. By default they are not included
  
 The included XML formatter does not have any additional output options.
 
-**Building**
+## Building
 Jisql now uses a standard source code tree format along with a Maven pom.xml
 file.  To build you would run:
 
@@ -169,6 +170,7 @@ need.  Please understand though that the dependencies jar will not
 contain your JDBC driver.
 
  
+## Copyright
 Copyright (C) 2004-2015 Scott Dunbar (scott@xigole.com)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not
