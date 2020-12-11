@@ -59,6 +59,9 @@ running. This same version information is included in the code (run with
 ## New in version 2.0.12
 Moved to Maven for builds to help with dependencies.
 
+## New in version 2.1
+Added -fetchsize option.
+
 ## Command line options
 
 * -driver This option allows you to specify the JDBC driver class name of the driver. There are several shortcuts that can be used:
@@ -118,6 +121,10 @@ command line or a file. Note - the command must have a command terminator. So,
 for example, your command line may be something like "-c \; -query "select *
 from blah;". If you do not include the command terminator then the command
 will hang, waiting for you to enter the default "go".
+* -fetchsize An optional value to set the "fetch size" on the connection.
+Fetch size controls how much data is returned from the database per request to the 
+server and can have a significant impact on performance when fetching large numbers
+of rows.
 * -debug This turns on some internal debugging code. Not generally useful.
 * -driverinfo Allows you to print some information that the driver
 returns. Generally not very useful in all but a few cases.

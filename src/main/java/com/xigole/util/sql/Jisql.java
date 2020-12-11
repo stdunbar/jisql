@@ -139,6 +139,10 @@ import com.xigole.util.sql.outputformatter.JisqlFormatter;
  * &quot;-c \; -query "select * from blah;". If you do not include the command
  * terminator then the command will hang, waiting for you to enter the default
  * "go".</li>
+ * <li><b>-fetchsize </b> An optional value to set the "fetch size" on the connection.
+ * Fetch size controls how much data is returned from the database per request to the 
+ * server and can have a significant impact on performance when fetching large numbers
+ * of rows.</li> 
  * <li><b>-debug </b> This turns on some internal debugging code. Not generally
  * useful.</li>
  * <li><b>-driverinfo </b> Allows you to print some information that the driver
@@ -238,6 +242,7 @@ public class Jisql {
     private String password = null;
     private String passwordFileName = null;
     private String formatterClassName = defaultFormatterClassName;
+    private int fetchSize = 0;
 
     private JisqlFormatter formatter = null;
 
@@ -353,6 +358,10 @@ public class Jisql {
 
         printAllExceptions(connection.getWarnings());
         statement = connection.createStatement();
+        if (fetchSize > 0) {
+            statement.setFetchSize(fetchSize);
+        }
+
         connection.clearWarnings();
 
         while (true) {
@@ -537,6 +546,7 @@ public class Jisql {
         parser.accepts("debug");
         parser.accepts("driver").withRequiredArg().ofType(String.class);
         parser.accepts("driverinfo");
+        parser.accepts("fetchsize").withRequiredArg().ofType(Integer.class);
         parser.accepts("formatter").withRequiredArg().ofType(String.class);
         parser.accepts("help");
         parser.accepts("input").withRequiredArg().ofType(String.class);
@@ -602,6 +612,9 @@ public class Jisql {
             password = (String) options.valueOf("password");
         else if (options.has("p"))
             password = (String) options.valueOf("p");
+
+        if (options.has("fetchsize"))
+            fetchSize = (int) options.valueOf("fetchsize");
 
         if (options.has("driverinfo"))
             printDriverDetails = true;
@@ -687,7 +700,7 @@ public class Jisql {
         System.err.println( "Jisql v" + Jisql.class.getPackage().getImplementationVersion() + " copyright (c) 2015 Scott Dunbar (scott@xigole.com)" );
         System.err.println("usage: java " + getClass().getName() +
                            " -driver driver -cstring connect_string -user|-u username -password|-p password [-pf password_file] " +
-                           "[-c command_term] [-input file_name] [-debug] [-driverinfo] [-formatter formatter]");
+                           "[-c command_term] [-input file_name] [-fetchsize value] [-debug] [-driverinfo] [-formatter formatter]");
         System.err.println("where:");
         System.err
                 .println("\t-driver specifies the JDBC driver to use.  There are several builtin shortcuts - see the docs for details.");
@@ -701,6 +714,10 @@ public class Jisql {
         System.err
                 .println("\t-query specifies an optional single query to run instead of interacting with the command line or a file.");
         System.err.println("\t       Note that the command must include a command terminator or the command will hang");
+        System.err.println("\t-fetchsize specifies an optional value to set the 'fetch size' on the connection.");
+        System.err.println("\t            Fetch size controls how much data is returned from the database per request to the");
+        System.err.println("\t            server and can have a significant impact on performance when fetching large numbers");
+        System.err.println("\t            of rows.");
         System.err.println("\t-debug prints to stdout (System.out) debugging information");
         System.err.println("\t-driverinfo prints to stdout (System.out) detailed driver information and then exits");
         System.err
