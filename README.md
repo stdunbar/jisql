@@ -61,6 +61,9 @@ Moved to Maven for builds to help with dependencies.
 
 ## New in version 2.1
 Added -fetchsize option.
+Added the Null formatter - useful when benchmarking how quickly we can
+retrieve data from a server since no time is spent actually processing
+the data.
 
 ## Command line options
 
@@ -132,6 +135,7 @@ returns. Generally not very useful in all but a few cases.
 output. There are three built in short cuts:
   * *csv* output the data in CSV format.
   * *xml* output the data in XML format.
+  * *null* ignore all output.
   * *default* (does not have to be specified) - output the format in the "normal" format.
   * Otherwise, this is a class name that implements
 com.xigole.util.sql.outputformatter.JisqlFormatter. See the code for more
