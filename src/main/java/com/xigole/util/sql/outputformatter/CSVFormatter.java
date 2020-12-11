@@ -109,7 +109,7 @@ public class CSVFormatter implements JisqlFormatter {
      */
     public void formatData( PrintStream out, ResultSet resultSet, ResultSetMetaData metaData ) throws Exception {
     	
-    	CsvWriter csvWriter = new CsvWriter( out, delimiter, Charset.forName( "us-ascii" )  );
+    	CsvWriter csvWriter = new CsvWriter( out, delimiter, Charset.defaultCharset() );
     	
         while( resultSet.next() ) {
             int numColumns = metaData.getColumnCount();
